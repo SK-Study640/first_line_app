@@ -1,6 +1,7 @@
 class RegistrationsController < ApplicationController
   def new
     # 新規登録画面表示
+    @user = User.find(session[:user_id])
   end
 
   def confirm

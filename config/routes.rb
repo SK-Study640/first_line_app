@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root "home#index"
 
+  # LINE認証
+  get "/auth/line/callback", to: "line_auth#callback"
+
   # Registrations
   resource :registrations, only: [ :new ] do
     collection do
