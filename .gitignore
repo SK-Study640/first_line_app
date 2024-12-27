@@ -39,4 +39,4 @@
 extensions.json
 launch.json
 config/initializers/sesession_store.rb
-storage/.keep
+storage/.keeps
