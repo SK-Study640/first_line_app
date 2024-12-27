@@ -1,2 +1,6 @@
-<h1>Registrations#new</h1>
-<p>Find me in app/views/registrations/new.html.erb</p>
+<p>
+    <%= @user.name%>
+</p>
+<p>
+    <%= @user.profile_image.attached? ? image_tag(url_for(@user.profile_image), alt: "User Profile Image") : "画像を取得できませんでした, URL: #{@user.profile_image}, 添付？：#{@user.profile_image.attached?}" %>
+</p>
