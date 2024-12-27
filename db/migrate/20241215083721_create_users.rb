@@ -1,8 +1,8 @@
 class CreateUsers < ActiveRecord::Migration[7.2]
   def change
     create_table :users do |t|
-      t.string :line_user_id, null: false, unique: true
-      t.string :name, null: null
+      t.string :line_user_id, null: false
+      t.string :name, null: false
       t.date :birthday
 
       t.timestamps

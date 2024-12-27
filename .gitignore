@@ -33,3 +33,10 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+.env
+.DS_Store
+extensions.json
+launch.json
+config/initializers/sesession_store.rb
+storage/.keep
