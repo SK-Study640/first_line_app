@@ -1,2 +1,25 @@
-<h1>Registrations#confirm</h1>
-<p>Find me in app/views/registrations/confirm.html.erb</p>
+<div class="container">
+    <h1>確認</h1>
+    <div class="user-info">
+        <span class="user-image">
+            <%= @user.profile_image.attached? ? image_tag(url_for(@user.profile_image), alt: "User Profile Image") : "画像を取得できませんでした, URL: #{@user.profile_image}, 添付？：#{@user.profile_image.attached?}" %>
+        </span>
+        <span class="user-name">
+            <%= @user.name%>
+        </span>
+    </div>
+    <div class="user-input">
+        <p>生年月日</p>
+        <span>
+            <%= @year %>年
+        </span>
+                <span>
+            <%= @month %>月
+        </span>
+         <span>
+            <%= @day %>日
+        </span>
+    </div>        
+    <%= button_to "登録", confirm_registrations_path, method: :post, class: "btn-confirm", data: { turbo: true } %>
+    <%= button_to "戻る", confirm_registrations_path, method: :get, class: "btn-return", data: { turbo: true } %>
+</div>

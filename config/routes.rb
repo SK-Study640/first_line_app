@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # Registrations
   resource :registrations, only: [ :new ] do
     collection do
-      post "confirm"
+      get "confirm"
       post "complete"
     end
   end

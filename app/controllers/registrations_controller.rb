@@ -6,6 +6,10 @@ class RegistrationsController < ApplicationController
 
   def confirm
     # 入力内容確認画面表示
+    @user = User.find(session[:user_id])
+    @year = params[:year]
+    @month = params[:month]
+    @day = params[:day]
   end
 
   def complete
