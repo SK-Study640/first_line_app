@@ -1,6 +1,22 @@
-<p>
-    <%= @user.name%>
-</p>
-<p>
-    <%= @user.profile_image.attached? ? image_tag(url_for(@user.profile_image), alt: "User Profile Image") : "画像を取得できませんでした, URL: #{@user.profile_image}, 添付？：#{@user.profile_image.attached?}" %>
-</p>
+<div class="container">
+    <h1>新規登録</h1>
+    <div class="user-info">
+        <span class="user-image">
+            <%= @user.profile_image.attached? ? image_tag(url_for(@user.profile_image), alt: "User Profile Image") : "画像を取得できませんでした, URL: #{@user.profile_image}, 添付？：#{@user.profile_image.attached?}" %>
+        </span>
+        <span class="user-name">
+            <%= @user.name%>
+        </span>
+    </div>
+    <div class="user-input"> 
+        <p>生年月日</p>
+        <%= form_with url: confirm_registrations_path, method: :get, data: { turbo: true } do |form| %>
+            <div>
+                <%= form.number_field :year, required: true, placeholder: "1990", min: 1990, max: 2999, class: "input" %> 年
+                <%= form.number_field :month, required: true, placeholder: "10"  , min: 1, max: 12, class: "input"  %> 月
+                <%= form.number_field :day, required: true,   placeholder: "8",    min: 1, max: 31, class: "input"  %> 日
+            </div>
+            <%= form.submit "確認" , class: "btn-confirm"%>
+        <% end %>
+    </div>        
+</div>
