@@ -37,6 +37,9 @@ gem "bootsnap", require: false
 # 環境変数設定用
 gem "dotenv-rails"
 
+# 認証用
+gem "devise"
+
 # LINE認証用
 gem "omniauth"
 gem "omniauth-line"
