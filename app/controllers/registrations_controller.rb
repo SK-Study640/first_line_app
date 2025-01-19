@@ -9,7 +9,6 @@ class RegistrationsController < ApplicationController
   def confirm
     # 入力内容確認画面表示
     @user = User.new(name: params[:name], line_user_id: params[:line_user_id], provider: params[:provider], tmp_profile_file_path: params[:tmp_profile_file_path])
-    # @user = User.find(session[:user_id])
     @year = params[:year]
     @month = params[:month]
     @day = params[:day]
@@ -17,9 +16,6 @@ class RegistrationsController < ApplicationController
 
   def complete
     # 登録完了画面表示
-    #
-    # Active record登録用コード備忘
-    # @user.profile_image.attach(io: image_file, filename: "profile_#{@user.id}.jpg", content_type: "image/jpeg")
   end
 
   private
