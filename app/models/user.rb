@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+    # 登録前の一時的なプロフィール画像のファイルパスを保持
+    attr_accessor :tmp_profile_file_path, :tmp_profile_file
+
     # 申請状態関係
     has_many :sent_requests, class_name: "Request", foreign_key: "sender_id", dependent: :destroy
     has_many :received_requests, class_name: "Request", foreign_key: "receiver_id", dependent: :destroy

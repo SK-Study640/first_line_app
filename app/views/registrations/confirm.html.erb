@@ -2,7 +2,7 @@
     <h1>確認</h1>
     <div class="user-info">
         <span class="user-image">
-            <%= @user.profile_image.attached? ? image_tag(url_for(@user.profile_image), alt: "User Profile Image") : "画像を取得できませんでした, URL: #{@user.profile_image}, 添付？：#{@user.profile_image.attached?}" %>
+            <%= image_tag("#{@user.tmp_profile_file_path}") %>
         </span>
         <span class="user-name">
             <%= @user.name%>
@@ -20,6 +20,6 @@
             <%= @day %>日
         </span>
     </div>        
-    <%= button_to "登録", confirm_registrations_path, method: :post, class: "btn-confirm", data: { turbo: true } %>
-    <%= button_to "戻る", confirm_registrations_path, method: :get, class: "btn-return", data: { turbo: true } %>
+    <%= button_to "登録", confirm_registrations_path(name: @user.name, year: @year, month: @month, day: @day), method: :post, class: "btn-confirm" %>
+    <%= button_to "戻る", confirm_registrations_path, method: :get, class: "btn-return" %>
 </div>

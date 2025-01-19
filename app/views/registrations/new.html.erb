@@ -2,7 +2,7 @@
     <h1>新規登録</h1>
     <div class="user-info">
         <span class="user-image">
-            <%= @user.profile_image.attached? ? image_tag(url_for(@user.profile_image), alt: "User Profile Image") : "画像を取得できませんでした, URL: #{@user.profile_image}, 添付？：#{@user.profile_image.attached?}" %>
+            <%= image_tag("#{@user.tmp_profile_file_path}") %>
         </span>
         <span class="user-name">
             <%= @user.name%>
@@ -10,7 +10,13 @@
     </div>
     <div class="user-input"> 
         <p>生年月日</p>
-        <%= form_with url: confirm_registrations_path, method: :get, data: { turbo: true } do |form| %>
+        <%= form_with url: confirm_registrations_path, method: :get do |form| %>
+            <span>
+                <%= form.hidden_field :line_user_id, value: @user.line_user_id %>
+                <%= form.hidden_field :name, value: @user.name %>
+                <%= form.hidden_field :provider, value: @user.provider %>
+                <%= form.hidden_field :tmp_profile_file_path, value: @user.tmp_profile_file_path %>
+            </span>
             <div>
                 <%= form.number_field :year, required: true, placeholder: "1990", min: 1990, max: 2999, class: "input" %> 年
                 <%= form.number_field :month, required: true, placeholder: "10"  , min: 1, max: 12, class: "input"  %> 月
