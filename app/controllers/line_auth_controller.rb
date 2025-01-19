@@ -12,11 +12,6 @@ class LineAuthController < ApplicationController
     redirect_to new_registrations_path(name: @user.name, line_user_id: @user.line_user_id, provider: @user.provider, tmp_profile_file_path: @user.tmp_profile_file_path)
   end
 
-  def failure
-    Rails.logger.error "LINE認証エラー: #{e.message}"
-    redirect_to root_path, alert: "LINE認証に失敗しました"
-  end
-
   def image(auth, line_user_id)
     # LINEから画像URLを取得して一時ファイルとして保存
     if auth["info"]["image"].present?
@@ -32,5 +27,10 @@ class LineAuthController < ApplicationController
     file_path = Rails.root.join(TMP_USER_IMAGE_PATH, "#{line_user_id}.jpg")
     File.open(file_path, "wb") { |f| f.write(image_file) }
     file_path
+  end
+
+  def failure
+    Rails.logger.error "LINE認証エラー: #{e.message}"
+    redirect_to root_path, alert: "LINE認証に失敗しました"
   end
 end
