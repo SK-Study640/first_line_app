@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable
     # 登録前の一時的なプロフィール画像のファイルパスを保持
     attr_accessor :tmp_profile_file_path, :tmp_profile_file
 
