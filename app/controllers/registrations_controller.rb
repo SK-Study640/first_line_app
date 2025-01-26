@@ -14,8 +14,25 @@ class RegistrationsController < ApplicationController
     @day = params[:day]
   end
 
+  def create
+    # 登録処理
+    user = User.new(name: params[:name], line_user_id: params[:line_user_id], provider: params[:provider], tmp_profile_file_path: params[:tmp_profile_file_path])
+    user.birthday = Date.new(Integer(params[:year]), Integer(params[:month]), Integer(params[:day]))
+    begin
+      if user.save
+        redirect_to complete_registrations_path(user_id: user.id),  notice: "Success to register"
+      else
+        redirect_to confirm_registrations_path, notice: "Failed to register"
+      end
+    rescue => e
+      Rails.logger.error("Error saving user: #{e.message}")
+      redirect_to confirm_registrations_path, notice: "Failed to register"
+    end
+  end
+
   def complete
     # 登録完了画面表示
+    @user_id = params[:user_id]
   end
 
   private
