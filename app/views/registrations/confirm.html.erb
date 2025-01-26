@@ -20,6 +20,16 @@
             <%= @day %>日
         </span>
     </div>        
-    <%= button_to "登録", confirm_registrations_path(name: @user.name, year: @year, month: @month, day: @day), method: :post, class: "btn-confirm" %>
+
+    <%= form_with url: registrations_path, method: :post do %>
+        <%= hidden_field_tag :name, @user.name %>
+        <%= hidden_field :line_user_id, value: @user.line_user_id %>
+        <%= hidden_field :provider, value: @user.provider %>
+        <%= hidden_field_tag :year, @year %>
+        <%= hidden_field_tag :month, @month %>
+        <%= hidden_field_tag :day, @day %>
+        <%= hidden_field_tag :tmp_profile_file_path, @user.tmp_profile_file_path %>
+        <%= submit_tag "登録", class: "btn-confirm" %>
+    <% end %>
     <%= button_to "戻る", confirm_registrations_path, method: :get, class: "btn-return" %>
 </div>
