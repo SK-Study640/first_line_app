@@ -1,11 +1,182 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  line_user_id: MyString
-  name: MyString
-  birthday: 2024-12-15
+user_1:
+  line_user_id: "U1234567890"
+  name: "田中 太郎"
+  birthday: "1995-04-15"
+  uid: "uid_1"
+  provider: line
+  status: unset
+  email: mail@example.com
 
-two:
-  line_user_id: MyString
-  name: MyString
-  birthday: 2024-12-15
+user_2:
+  line_user_id: "U2345678901"
+  name: "佐藤 花子"
+  birthday: "1998-08-21"
+  uid: "uid_2"
+  provider: line
+  status: unset
+  email: mail@example.com
+
+user_3:
+  line_user_id: "U3456789012"
+  name: "山本 健一"
+  birthday: "1992-01-30"
+  uid: "uid_3"
+  provider: line
+  status: unset
+  email: mail@example.com
+
+user_4:
+  line_user_id: "U4567890123"
+  name: "高橋 美咲"
+  birthday: "1996-12-10"
+  uid: "uid_4"
+  provider: line
+  status: unset
+  email: mail@example.com
+
+user_5:
+  line_user_id: "U5678901234"
+  name: "伊藤 翔"
+  birthday: "1994-06-25"
+  uid: "uid_5"
+  provider: line
+  status: unset
+  email: mail@example.com
+
+user_6:
+  line_user_id: "U6789012345"
+  name: "中村 優"
+  birthday: "1999-03-07"
+  uid: "uid_6"
+  provider: line
+  status: unset
+  email: mail@example.com
+
+user_7:
+  line_user_id: "U7890123456"
+  name: "小林 涼"
+  birthday: "1997-09-18"
+  uid: "uid_7"
+  provider: line
+  status: unset
+  email: mail@example.com
+
+user_8:
+  line_user_id: "U8901234567"
+  name: "松本 さくら"
+  birthday: "1993-11-03"
+  uid: "uid_8"
+  provider: line
+  status: unset
+  email: mail@example.com
+
+user_9:
+  line_user_id: "U9012345678"
+  name: "加藤 大輝"
+  birthday: "1995-05-12"
+  uid: "uid_9"
+  provider: line
+  status: unset
+  email: mail@example.com
+
+user_10:
+  line_user_id: "U0123456789"
+  name: "吉田 美優"
+  birthday: "1998-07-22"
+  uid: "uid_10"
+  provider: line
+  status: unset
+  email: mail@example.com
+
+user_11:
+  line_user_id: "U1122334455"
+  name: "藤田 直樹"
+  birthday: "1994-10-05"
+  uid: "uid_11"
+  provider: line
+  status: unset
+  email: mail@example.com
+
+user_12:
+  line_user_id: "U2233445566"
+  name: "西村 玲奈"
+  birthday: "1992-04-09"
+  uid: "uid_12"
+  provider: line
+  status: unset
+  email: mail@example.com
+
+user_13:
+  line_user_id: "U3344556677"
+  name: "岡田 智"
+  birthday: "1997-01-14"
+  uid: "uid_13"
+  provider: line
+  status: unset
+  email: mail@example.com
+
+user_14:
+  line_user_id: "U4455667788"
+  name: "石井 美沙"
+  birthday: "1996-08-31"
+  uid: "uid_14"
+  provider: line
+  status: unset
+  email: mail@example.com
+
+user_15:
+  line_user_id: "U5566778899"
+  name: "村上 陽"
+  birthday: "1999-06-16"
+  uid: "uid_15"
+  provider: line
+  status: unset
+  email: mail@example.com
+
+user_16:
+  line_user_id: "U6677889900"
+  name: "原田 由香"
+  birthday: "1995-12-24"
+  uid: "uid_16"
+  provider: line
+  status: unset
+  email: mail@example.com
+
+user_17:
+  line_user_id: "U7788990011"
+  name: "池田 亮"
+  birthday: "1993-02-28"
+  uid: "uid_17"
+  provider: line
+  status: unset
+  email: mail@example.com
+
+user_18:
+  line_user_id: "U8899001122"
+  name: "浜田 奈々"
+  birthday: "1998-09-09"
+  uid: "uid_18"
+  provider: line
+  status: unset
+  email: mail@example.com
+
+user_19:
+  line_user_id: "U9900112233"
+  name: "三浦 健"
+  birthday: "1994-07-05"
+  uid: "uid_19"
+  provider: line
+  status: unset
+  email: mail@example.com
+
+user_20:
+  line_user_id: "U0011223344"
+  name: "長谷川 明美"
+  birthday: "1997-11-11"
+  uid: "uid_20"
+  provider: line
+  status: unset
+  email: mail@example.com
+

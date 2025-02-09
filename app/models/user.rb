@@ -16,4 +16,11 @@ class User < ApplicationRecord
 
     # プロフィール画像
     has_one_attached :profile_image
+
+    # ユーザーステータス
+    # unset：恋人及び申請なし
+    # pending：申請中
+    # incoming：申請が来ている
+    # registered：恋人登録済み
+    enum status: { unset: "unset", pending: "pending", incoming: "incoming", registered: "registered" }
 end
