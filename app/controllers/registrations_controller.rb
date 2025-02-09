@@ -20,6 +20,7 @@ class RegistrationsController < ApplicationController
     user.birthday = Date.new(Integer(params[:year]), Integer(params[:month]), Integer(params[:day]))
     begin
       if user.save
+        sign_in(user)
         redirect_to complete_registrations_path(user_id: user.id),  notice: "Success to register"
       else
         redirect_to confirm_registrations_path, notice: "Failed to register"

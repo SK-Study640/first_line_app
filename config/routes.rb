@@ -15,12 +15,12 @@ Rails.application.routes.draw do
   end
 
   # Users
-  resources :users, only: [ :show ] do
-    collection do
+    namespace :users
+      get "/:id", to: "users#route"
+      get "unset"
       get "pending"
       get "incoming"
       get "registered"
-    end
   end
 
   # Requests
