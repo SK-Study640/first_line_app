@@ -15,20 +15,18 @@ Rails.application.routes.draw do
   end
 
   # Users
-    namespace :users
-      get "/:id", to: "users#route"
-      get "unset"
-      get "pending"
-      get "incoming"
-      get "registered"
+  scope :users do
+    get "/users/:id", to: "users#route", as: "users"
+    get "unset", to: "users#unset", as: "users_unset"
+    get "pending", to: "users#pending", as: "users_pending"
+    get "incoming", to: "users#incoming", as: "users_incoming"
+    get "registered", to: "users#registered", as: "users_registered"
   end
 
   # Requests
-  resources :requests, only: [] do
-    collection do
-      get "confirm"
-      get "remove"
-      get "cancel"
-    end
+  namespace :requests do
+    get "confirm"
+    get "remove"
+    get "cancel"
   end
 end
