@@ -1,5 +1,5 @@
 class RegistrationsController < ApplicationController
-  # before_action :user_params
+  before_action :check_login_user
 
   def new
     # 新規登録画面表示
@@ -37,7 +37,12 @@ class RegistrationsController < ApplicationController
   end
 
   private
-  def user_params
-    params.require(:user).permit(:name, :line_user_id, :provider, :tmp_profile_file_path)
+  # 登録済みユーザーの場合はマイページに遷移する
+  def check_login_user
+    if User.exists?(line_user_id: params[:line_user_id])
+      @user = User.find_by(line_user_id: params[:line_user_id])
+      sign_in(@user)
+      redirect_to users_path(@user)
+    end
   end
 end

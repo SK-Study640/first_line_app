@@ -6,13 +6,13 @@ class UsersController < ApplicationController
   def route
     case @user.status
     when "unset"
-      redirect_to unset_users_path
+      redirect_to users_unset_path
     when "pending"
-      redirect_to pending_users_path
+      redirect_to users_pending_path
     when "incoming"
-      redirect_to incoming_users_path
+      redirect_to users_incoming_path
     when "registered"
-      redirect_to registered_users_path
+      redirect_to users_registered_path
     end
   end
 
