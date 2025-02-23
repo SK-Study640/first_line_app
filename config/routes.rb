@@ -16,11 +16,7 @@ Rails.application.routes.draw do
 
   # Users
   scope :users do
-    get "/users/:id", to: "users#route", as: "users"
-    get "unset", to: "users#unset", as: "users_unset"
-    get "pending", to: "users#pending", as: "users_pending"
-    get "incoming", to: "users#incoming", as: "users_incoming"
-    get "registered", to: "users#registered", as: "users_registered"
+    get "/users/:id", to: "users#mypage", as: "users"
     # 開発用機能
     get "index", to: "users#index", as: "index"
     get "switch_user", to: "users#switch_user", as: "switch_user"
