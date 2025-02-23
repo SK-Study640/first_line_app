@@ -1,0 +1,26 @@
+<h1>ユーザー切り替え</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th hidden>LINEユーザーID (隠し項目)</th>
+      <th>名前</th>
+      <th>ステータス</th>
+      <th>申請相手</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td hidden><%= user.line_user_id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.status %></td>
+        <td><%= user.application_for %></td>
+        <td>
+          <%= button_to '切り替え', switch_user_path(user), method: :post %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
