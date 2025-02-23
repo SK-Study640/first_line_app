@@ -32,6 +32,27 @@ class UsersController < ApplicationController
     # マイページ（登録済み）表示
   end
 
+  # 開発用機能
+  def index
+    @users = User.all
+    # 恋人申請中の場合は申請相手を取得する
+    @users.each do |user|
+      if user.status === pending
+        # 恋人申請中の場合
+        user.application_for = "pending:#{user.partner}"
+      end
+      if user.status === incoming
+        # 恋人申請中の場合
+        user.application_for = "pending:#{user.partner}"
+      end
+    end
+  end
+
+  def switch_user
+    sign_in(User.find(params[:id]))
+    redirect_to users_path
+  end
+
   private
   def set_user
     @user = current_user
