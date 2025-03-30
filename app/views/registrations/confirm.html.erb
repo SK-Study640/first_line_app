@@ -8,28 +8,22 @@
             <%= @user.name%>
         </span>
     </div>
-    <div class="user-input">
-        <p>生年月日</p>
-        <span>
-            <%= @year %>年
-        </span>
-                <span>
-            <%= @month %>月
-        </span>
-         <span>
-            <%= @day %>日
-        </span>
-    </div>        
+<div class="user-input">
+  <p>生年月日</p>
+  <span><%= @year %>年</span>
+  <span><%= @month %>月</span>
+  <span><%= @day %>日</span>
+</div>
 
-    <%= form_with url: registrations_path, method: :post do %>
-        <%= hidden_field_tag :name, @user.name %>
-        <%= hidden_field :line_user_id, value: @user.line_user_id %>
-        <%= hidden_field :provider, value: @user.provider %>
-        <%= hidden_field_tag :year, @year %>
-        <%= hidden_field_tag :month, @month %>
-        <%= hidden_field_tag :day, @day %>
-        <%= hidden_field_tag :tmp_profile_file_path, @user.tmp_profile_file_path %>
-        <%= submit_tag "登録", class: "btn-confirm" %>
-    <% end %>
-    <%= button_to "戻る", confirm_registrations_path, method: :get, class: "btn-return" %>
+<%= form_with url: registrations_path, method: :post do |form| %>
+  <%= hidden_field_tag :name, @user.name %>
+  <%= form.hidden_field :line_user_id, value: @user.line_user_id %>
+  <%= form.hidden_field :provider, value: @user.provider %>
+  <%= hidden_field_tag :year, @year %>
+  <%= hidden_field_tag :month, @month %>
+  <%= hidden_field_tag :day, @day %>
+  <%= hidden_field_tag :tmp_profile_file_path, @user.tmp_profile_file_path %>
+  <%= submit_tag "登録", class: "btn-confirm" %>
+<% end %>
+
 </div>

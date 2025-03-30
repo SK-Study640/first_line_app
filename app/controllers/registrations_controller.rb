@@ -1,5 +1,5 @@
 class RegistrationsController < ApplicationController
-  before_action :check_login_user
+  before_action :check_login_user, except: :complete
 
   def new
     # 新規登録画面表示
@@ -8,6 +8,7 @@ class RegistrationsController < ApplicationController
 
   def confirm
     # 入力内容確認画面表示
+    p "params[:line_user_id] is #{params[:line_user_id]}"
     @user = User.new(name: params[:name], line_user_id: params[:line_user_id], provider: params[:provider], tmp_profile_file_path: params[:tmp_profile_file_path])
     @year = params[:year]
     @month = params[:month]
@@ -17,6 +18,7 @@ class RegistrationsController < ApplicationController
   def create
     # 登録処理
     user = User.new(name: params[:name], line_user_id: params[:line_user_id], provider: params[:provider], tmp_profile_file_path: params[:tmp_profile_file_path])
+    p "params[:line_user_id] is #{params[:line_user_id]}"
     user.birthday = Date.new(Integer(params[:year]), Integer(params[:month]), Integer(params[:day]))
     begin
       if user.save
@@ -33,7 +35,7 @@ class RegistrationsController < ApplicationController
 
   def complete
     # 登録完了画面表示
-    @user_id = params[:user_id]
+    @user_id = current_user.id
   end
 
   private
