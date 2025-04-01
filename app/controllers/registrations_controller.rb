@@ -8,7 +8,6 @@ class RegistrationsController < ApplicationController
 
   def confirm
     # 入力内容確認画面表示
-    p "params[:line_user_id] is #{params[:line_user_id]}"
     @user = User.new(name: params[:name], line_user_id: params[:line_user_id], provider: params[:provider], tmp_profile_file_path: params[:tmp_profile_file_path])
     @year = params[:year]
     @month = params[:month]
@@ -18,7 +17,6 @@ class RegistrationsController < ApplicationController
   def create
     # 登録処理
     user = User.new(name: params[:name], line_user_id: params[:line_user_id], provider: params[:provider], tmp_profile_file_path: params[:tmp_profile_file_path])
-    p "params[:line_user_id] is #{params[:line_user_id]}"
     user.birthday = Date.new(Integer(params[:year]), Integer(params[:month]), Integer(params[:day]))
     begin
       if user.save
