@@ -1,5 +1,5 @@
 class RegistrationsController < ApplicationController
-  before_action :check_login_user
+  before_action :check_login_user, except: :complete
 
   def new
     # 新規登録画面表示
@@ -33,7 +33,7 @@ class RegistrationsController < ApplicationController
 
   def complete
     # 登録完了画面表示
-    @user_id = params[:user_id]
+    @user_id = current_user.id
   end
 
   private
